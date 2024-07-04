@@ -4,6 +4,7 @@ const dotenv = require('dotenv');
 
 //Routes
 const authRoutes = require('./routes/authRoutes');
+const jobRoutes = require('./routes/jobRoutes'); // Import job routes
 // Load environment variables from .env file
 dotenv.config();
 
@@ -16,8 +17,8 @@ connectDB();
 app.use(express.json());
 
 // Routes
-app.use('/api/auth', authRoutes);
-// app.use('/api/jobs', jobRoutes);
+app.use('/api/auth', authRoutes);  // Use auth routes and specify the base path
+app.use('/api/jobs', jobRoutes);  // Use job routes and specify the base path
 // app.use('/api/applications', applicationRoutes);
 
 // Root endpoint for health check
