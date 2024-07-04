@@ -1,5 +1,3 @@
-// controllers/userController.js
-
 const User = require('../models/User'); // Import the User model
 const bcrypt = require('bcryptjs'); // Import bcryptjs for password hashing
 const jwt = require('jsonwebtoken'); // Import jsonwebtoken for token generation
