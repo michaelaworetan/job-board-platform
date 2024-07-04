@@ -132,7 +132,7 @@ exports.deleteJob = async (req, res) => {
     }
 
     // Delete the job from the database
-    await job.remove();
+    await Job.findByIdAndDelete(req.params.id);
 
     // Return a success message
     res.status(200).json({ message: 'Job removed' });
