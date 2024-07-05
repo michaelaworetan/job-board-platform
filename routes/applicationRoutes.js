@@ -1,16 +1,14 @@
-
 const express = require('express');     // Import the Express library for creating routes
 // Create a router instance from Express
 const router = express.Router();
-const auth = require('../middleware/auth');      // Import the auth middleware to protect routes that require authentication
+const auth = require('../middleware/authMiddleware');      // Import the auth middleware to protect routes that require authentication
 // Destructure the controller functions from the applicationController
 const { createApplication, getApplications, getApplicationById, updateApplication, deleteApplication } = require('../controllers/applicationController');
 
 /*** @route POST /api/applications* @desc Create a new application* @access Private (only logged-in users can create applications) */
 router.post('/', auth, createApplication);
 
-/**
- * @route GET /api/applications* @desc Get all applications * @access Private (only logged-in users can view applications)*/
+/*** @route GET /api/applications* @desc Get all applications * @access Private (only logged-in users can view applications)*/
 router.get('/', auth, getApplications);
 
 /*** @route GET /api/applications/:id * @desc Get a specific application by ID* @access Private (only logged-in users can view applications)*/
